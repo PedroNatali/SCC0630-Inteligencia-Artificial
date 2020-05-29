@@ -303,18 +303,19 @@ if __name__ == '__main__':
 	matriz[inicio[0]][inicio[1]] = 'i'
 	matriz[final[0]][final[1]] = 'f'
 	lista.remove(None)
+	print(lista)
 
-	for i in range(0, row):
-		for j in range(0, col):
+	# for i in range(0, row):
+	# 	for j in range(0, col):
 
-			#if([i,j] in lista):
-			#	matriz[i][j] = lista.index([i,j])
+	# 		#if([i,j] in lista):
+	# 		#	matriz[i][j] = lista.index([i,j])
 
-			print(matriz[i][j], end = " ")
+	# 		print(matriz[i][j], end = " ")
 
-		print()
+	# 	print()
 
-	print()
+	# print()
 		
 
 	while True:
