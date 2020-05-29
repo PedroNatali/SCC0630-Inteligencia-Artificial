@@ -269,7 +269,7 @@ def drawGrid(col, row,lista,comeco,fim,matriz):
 if __name__ == '__main__':
 
 
-	arquivo_entrada = "entrada.txt"
+	arquivo_entrada = "entrada2.txt"
 
 	matriz, row, col = ler_arquivo(arquivo_entrada)
 
