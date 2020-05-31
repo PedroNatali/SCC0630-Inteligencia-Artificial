@@ -1,5 +1,8 @@
+#@authors Pedro Natali, Rafael Pinho & Patrick Feitosa
+
 import pygame
 
+#Colors
 BLACK = (10, 10, 10)
 WHITE = (255, 255, 255)
 GREEN = (0, 200, 0)
@@ -7,8 +10,9 @@ RED = (200,0,0)
 YELLOW = (255,200,0) 
 BLUE = (0,0,200)
 GREY = (150,150,150)
-blockSize = 20 #Set the size of the grid block
 
+#Size of the block
+blockSize = 20 #Set the size of the grid block
 
 
 def ler_arquivo(arquivo):           
@@ -32,12 +36,6 @@ def ler_arquivo(arquivo):
 
 	arq.close()
 	return matriz, row, col
-
-
-
-
-
-
 
 def DFS(atual, matriz, row, col, fim, lista):
 
