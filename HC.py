@@ -16,30 +16,31 @@ blockSize = 20 #Set the size of the grid block
 
 
 def descobre_melhor(teste1,teste2,teste3,teste4,fim):
+
 	pontuacao1 = abs(teste1[0] - fim[0]) + abs(teste1[1] - fim[1])
 	pontuacao2 = abs(teste2[0] - fim[0]) + abs(teste2[1] - fim[1])
 	pontuacao3 = abs(teste3[0] - fim[0]) + abs(teste3[1] - fim[1])
 	pontuacao4 = abs(teste4[0] - fim[0]) + abs(teste4[1] - fim[1])
 
-	if(pontuacao1 < pontuacao2):
-		if(pontuacao1 < pontuacao3):
-			if(pontuacao1 < pontuacao4):
+	if(pontuacao1 <= pontuacao2):
+		if(pontuacao1 <= pontuacao3):
+			if(pontuacao1 <= pontuacao4):
 				return pontuacao1, teste1
 			else:
 				return pontuacao4, teste4
 		else:
-			if(pontuacao3<pontuacao4):
+			if(pontuacao3<=pontuacao4):
 				return pontuacao3, teste3
 			else:
 				return pontuacao4, teste4
 	else:
-		if(pontuacao2 < pontuacao3):
-			if(pontuacao2 < pontuacao4):
+		if(pontuacao2 <= pontuacao3):
+			if(pontuacao2 <= pontuacao4):
 				return pontuacao2, teste2
 			else:
 				return pontuacao4, teste4
 		else:
-			if(pontuacao3 < pontuacao4):
+			if(pontuacao3 <= pontuacao4):
 				return pontuaca3, teste3
 			else:
 				return pontuacao4, teste4
@@ -131,10 +132,10 @@ def HC(atual, matriz, row, col, fim, lista):
 					if (matriz[i+1][j] == ('*'or'$') ):
 						teste1 = [i+1, j]
 
-					elif (matriz[i][j+1] == '*' or matriz[i][j+1] == '$'):
+					if (matriz[i][j+1] == '*' or matriz[i][j+1] == '$'):
 						teste2 = [i, j+1]
 
-					elif (matriz[i][j-1] == '*'or  matriz[i][j-1] == '$' ):
+					if (matriz[i][j-1] == '*'or  matriz[i][j-1] == '$' ):
 						teste3 = [i, j-1]
 
 					pontuacao_res, teste_res = descobre_melhor(teste1,teste2,teste3,teste4,fim)
@@ -215,10 +216,10 @@ def HC(atual, matriz, row, col, fim, lista):
 						if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
 							teste1 = [i+1, j]
 
-						elif (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
+						if (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
 							teste2 = [i, j+1]
 
-						elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
+						if (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
 							teste4 = [i-1, j]
 
 						pontuacao_res, teste_res = descobre_melhor(teste1,teste2,teste3,teste4,fim)
@@ -237,11 +238,11 @@ def HC(atual, matriz, row, col, fim, lista):
 							teste1 = [i+1, j]
 
 
-						elif (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
+						if (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
 							teste3 = [i, j-1]
 
 
-						elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
+						if (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
 							teste4 = [i-1, j]
 
 						pontuacao_res, teste_res = descobre_melhor(teste1,teste2,teste3,teste4,fim)
@@ -259,15 +260,15 @@ def HC(atual, matriz, row, col, fim, lista):
 							teste1 = [i+1, j]
 
 
-						elif (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
+						if (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
 							teste2 = [i, j+1]
 
 
-						elif (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
+						if (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
 							teste3 = [i, j-1]
 
 
-						elif (matriz[i-1][j] == '*' or matriz[i-1][j] == '$'):
+						if (matriz[i-1][j] == '*' or matriz[i-1][j] == '$'):
 							teste4 = [i-1, j]
 
 						pontuacao_res, teste_res = descobre_melhor(teste1,teste2,teste3,teste4,fim)
@@ -316,7 +317,7 @@ def drawGrid(col, row,lista,comeco,fim,matriz):
 if __name__ == '__main__':
 
 
-	arquivo_entrada = "entrada.txt"
+	arquivo_entrada = "entrada3.txt"
 
 	matriz, row, col = ler_arquivo(arquivo_entrada)
 
