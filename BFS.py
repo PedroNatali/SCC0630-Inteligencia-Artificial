@@ -80,142 +80,6 @@ def BFS(matriz, inicio, final, row, col):
 					j = j-1
 					atual = [i,j]
 					lista.append(atual)
-				'''if dist == 0:
-					print(lista)
-				else:
-					if ( (i < row ) & (j < col) ):
-						if i == 0:
-							if j == 0:
-								if ( (matriz[i+1][j] == dist )):
-									matriz[i+1][j] = 'v'
-									dist = dist-1
-									atual = [i+1,j]
-									lista.append([i+1,j])
-								elif ( (matriz[i][j+1] == dist) ):
-									matriz[i][j+1] = 'v'
-									dist = dist-1
-									atual = [i,j+1]
-									lista.append([i,j+1])
-							elif j == col-1:
-								if ( (matriz[i+1][j] == dist) ):
-									matriz[i+1][j] = 'v'
-									dist = dist-1
-									atual = [i+1,j]
-									lista.append([i+1,j])
-								elif ( (matriz[i][j-1] == dist)):
-									matriz[i][j-1] = 'v'
-									dist = dist-1
-									atual = [i,j-1]
-									lista.append([i,j-1])
-							elif j > 0:
-								if ( (matriz[i+1][j] == dist) ):
-									matriz[i+1][j] = 'v'
-									dist = dist-1
-									atual = [i+1,j]
-									lista.append([i+1,j])
-								elif ( (matriz[i][j+1] == dist) ):
-									matriz[i][j+1] = 'v'
-									dist = dist-1
-									atual = [i,j+1]
-									lista.append([i,j+1])
-								elif ( (matriz[i][j-1] == dist)):
-									matriz[i][j-1] = 'v'
-									dist = dist-1
-									atual = [i,j-1]
-									lista.append([i,j-1])
-						elif i == row-1:
-							if j == 0:
-								if ( (matriz[i][j+1] == dist)):
-									matriz[i][j+1] = 'v'
-									dist = dist-1
-									atual = [i,j+1]
-									lista.append([i,j+1])
-								elif ( (matriz[i-1][j] == dist)):
-									matriz[i-1][j] = 'v'
-									dist = dist-1
-									atual = [i-1,j]
-									lista.append([i-1,j])
-							elif j == col-1:
-								if ( (matriz[i][j-1] == dist)):
-									matriz[i][j-1] = 'v'
-									dist = dist-1
-									atual = [i,j]
-									lista.append([i,j-1])
-								elif ( (matriz[i-1][j] == dist) ):
-									matriz[i-1][j] = 'v'
-									dist = dist-1
-									atual = [i-1,j]
-									lista.append([i-1,j])
-							elif j > 0:
-								if ( (matriz[i][j+1] == dist) ):
-									matriz[i][j+1] = 'v'
-									dist = dist-1
-									atual = [i,j+1]
-									lista.append([i,j+1])
-								elif ( (matriz[i][j-1] == dist) ):
-									matriz[i][j-1] = 'v'
-									dist = dist-1
-									atual = [i,j-1]
-									lista.append([i,j-1])
-								elif ( (matriz[i-1][j] == dist) ):
-									matriz[i-1][j] = 'v'
-									dist = dist-1
-									atual = [i-1,j]
-									lista.append([i-1,j])
-						elif i > 0:
-							if j == 0:
-								if ( (matriz[i+1][j] == dist)  ):
-									matriz[i+1][j] = 'v'
-									dist = dist-1
-									atual = [i+1,j]
-									lista.append([i+1,j])
-								elif ( (matriz[i][j+1] == dist) ):
-									matriz[i][j+1] = 'v'
-									dist = dist-1
-									atual = [i,j+1]
-									lista.append([i,j+1])
-								elif ( (matriz[i-1][j] == dist) ):
-									matriz[i-1][j] = 'v'
-									dist = dist-1
-									atual = [i-1,j]
-									lista.append([i-1,j])
-							elif j == col-1:
-								if ( (matriz[i+1][j] == dist) ):
-									matriz[i+1][j] = 'v'
-									dist = dist-1
-									atual = [i+1,j]
-									lista.append([i+1,j])
-								elif ( (matriz[i][j-1] == dist) ):
-									matriz[i][j-1] = 'v'
-									dist = dist-1
-									atual = [i,j-1]
-									lista.append([i,j-1])
-								elif ( (matriz[i-1][j] == dist) ):
-									matriz[i-1][j] = 'v'
-									dist = dist-1
-									atual = [i-1,j]
-									lista.append([i-1,j])
-							elif j > 0:
-								if ( (matriz[i+1][j] == dist) ):
-									matriz[i+1][j] = 'v'
-									dist = dist-1
-									atual = [i+1,j]
-									lista.append([i+1,j])
-								elif ( (matriz[i][j+1] == dist) ):
-									matriz[i][j+1] = 'v'
-									dist = dist-1
-									atual = [i,j+1]
-									lista.append([i+1,j])
-								elif ( (matriz[i][j-1] == dist) ):
-									matriz[i][j-1] = 'v'
-									dist = dist-1
-									atual = [i,j-1]
-									lista.append([i,j-1])
-								elif ( (matriz[i-1][j] == dist) ):
-									matriz[i-1][j] = 'v'
-									dist = dist-1
-									atual = [i-1,j]
-									lista.append([i-1,j])'''
 		else:
 			if ( (i < row ) & (j < col) ):
 				if i == 0:
@@ -230,7 +94,6 @@ def BFS(matriz, inicio, final, row, col):
 							print(atual)
 							atual = visitar[0]
 							del(visitar[0])
-							#dist = matriz[atual[0]][atual[1]] +1
 					elif j == col-1:
 						if ( (matriz[i+1][j] == '*' ) or (matriz[i+1][j] == '$') ):
 							matriz[i+1][j] = "cima"
@@ -242,72 +105,57 @@ def BFS(matriz, inicio, final, row, col):
 							print(atual)
 							atual = visitar[0]
 							del(visitar[0])
-							#dist = matriz[atual[0]][atual[1]] +1
 					elif j > 0:
 						if ( (matriz[i+1][j] == '*' ) or (matriz[i+1][j] == '$') ):
 							matriz[i+1][j] = "cima"
 							visitar.append([i+1,j])
-							print("oi1")
 						elif ( (matriz[i][j+1] == '*' ) or (matriz[i][j+1] == '$') ):
 							matriz[i][j+1] = "esquerda"
 							visitar.append([i,j+1])
-							print("oi2")
 						elif ( (matriz[i][j-1] == '*' ) or (matriz[i][j-1] == '$')):
 							matriz[i][j-1] = "direita"
 							visitar.append([i,j-1])
-							print("oi3")
 						else:
 							print(atual)
 							atual = visitar[0]
 							del(visitar[0])
-							#dist = matriz[atual[0]][atual[1]] + 1
 				elif i == row-1:
 					if j == 0:
 						if ( (matriz[i][j+1] == '*' ) or (matriz[i][j+1] == '$')):
 							matriz[i][j+1] = "esquerda"
 							visitar.append([i,j+1])
-							print("oi2")
 						elif ( (matriz[i-1][j] == '*' ) or (matriz[i-1][j] == '$')):
 							matriz[i-1][j] = "baixo"
 							visitar.append([i-1,j])
-							print("oi4")
 						else:
 							print(atual)
 							atual = visitar[0]
 							del(visitar[0])
-							#dist = matriz[atual[0]][atual[1]] +1
 					elif j == col-1:
 						if ( (matriz[i][j-1] == '*' ) or (matriz[i][j-1] == '$')):
 							matriz[i][j-1] = "direita"
 							visitar.append([i,j-1])
-							print("oi3")
 						elif ( (matriz[i-1][j] == '*' ) or (matriz[i-1][j] == '$') ):
 							matriz[i-1][j] = "baixo"
 							visitar.append([i-1,j])
-							print("oi4")
 						else:
 							print(atual)
 							atual = visitar[0]
 							del(visitar[0])
-							#dist = matriz[atual[0]][atual[1]] +1
 					elif j > 0:
 						if ( (matriz[i][j+1] == '*' ) or (matriz[i][j+1] == '$') ):
 							matriz[i][j+1] = "esquerda"
 							visitar.append([i,j+1])
-							print("oi2")
 						elif ( (matriz[i][j-1] == '*' ) or (matriz[i][j-1] == '$') ):
 							matriz[i][j-1] = "direita"
 							visitar.append([i,j-1])
-							print("oi3")
 						elif ( (matriz[i-1][j] == '*' ) or (matriz[i-1][j] == '$') ):
 							matriz[i-1][j] = "baixo"
 							visitar.append([i-1,j])
-							print("oi4")
 						else:
 							print(atual)
 							atual = visitar[0]
 							del(visitar[0])
-							#dist = matriz[atual[0]][atual[1]] +1
 				elif i > 0:
 					if j == 0:
 						if ( (matriz[i+1][j] == '*' ) or (matriz[i+1][j] == '$')  ):
@@ -323,7 +171,6 @@ def BFS(matriz, inicio, final, row, col):
 							print(atual)
 							atual = visitar[0]
 							del(visitar[0])
-							#dist = matriz[atual[0]][atual[1]] +1
 					elif j == col-1:
 						if ( (matriz[i+1][j] == '*' ) or (matriz[i+1][j] == '$') ):
 							matriz[i+1][j] = "cima"
@@ -332,7 +179,6 @@ def BFS(matriz, inicio, final, row, col):
 						elif ( (matriz[i][j-1] == '*' ) or (matriz[i][j-1] == '$') ):
 							matriz[i][j-1] = "direita"
 							visitar.append([i,j-1])
-							print("oi3")
 						elif ( (matriz[i-1][j] == '*' ) or (matriz[i-1][j] == '$') ):
 							matriz[i-1][j] = "baixo"
 							visitar.append([i-1,j])
@@ -348,20 +194,19 @@ def BFS(matriz, inicio, final, row, col):
 						elif ( (matriz[i][j+1] == '*' ) or (matriz[i][j+1] == '$') ):
 							matriz[i][j+1] = "esquerda"
 							visitar.append([i,j+1])
-							print("oi2")
+
 						elif ( (matriz[i][j-1] == '*' ) or (matriz[i][j-1] == '$') ):
 							matriz[i][j-1] = "direita"
 							visitar.append([i,j-1])
-							print("oi3")
+
 						elif ( (matriz[i-1][j] == '*' ) or (matriz[i-1][j] == '$') ):
 							matriz[i-1][j] = "baixo"
 							visitar.append([i-1,j])
-							print("oi4")
+
 						else:
 							print(atual)
 							atual = visitar[0]
 							del(visitar[0])
-							#dist = matriz[atual[0]][atual[1]] +1
 				
 
 			else:
@@ -372,202 +217,9 @@ def BFS(matriz, inicio, final, row, col):
 
 
 
-def DFS(atual, matriz, row, col, fim, lista):
-
-	i = atual[0]
-	j = atual[1]
-
-
-	if 	(atual not in lista):
-
-		matriz[i][j]= 'v'
-
-		if (atual == fim):
-
-			lista.append([i,j])
-			#print(lista)
-			#print ("\n\nCHEGOU\n\n")
-			return lista
-
-
-		#i max = 28 // j max = 25 
-		else:
-
-			if ( (i < row ) & (j < col) ):
-
-				if (i == 0):
-
-					if (j == 0):
-
-						if ( (matriz[i+1][j] == '*' ) or (matriz[i+1][j] == '$') ):
-
-							lista.append([i,j])
-							atual = [i+1, j]
-							DFS(atual,matriz, row, col, fim, lista)
-
-						elif (matriz[i][j+1] == '*' or matriz[i][j+1] == '$'):
-							lista.append([i,j])
-							atual = [i, j+1]
-							DFS(atual,matriz, row, col, fim, lista)
-
-					elif(j == (col-1)):
-
-						if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
-							lista.append([i,j])
-							atual = [i+1, j]
-							DFS(atual,matriz, row, col, fim, lista)
-
-						elif (matriz[i][j-1] == '*' or matriz[i][j-1] == '$' ):
-							lista.append([i,j])
-							atual = [i, j-1]
-							DFS(atual,matriz, row, col, fim, lista)
-
-
-					else:
-
-						if (matriz[i+1][j] == ('*'or'$') ):
-							lista.append([i,j])
-							atual = [i+1, j]
-							DFS(atual,matriz, row, col, fim, lista)
-
-						elif (matriz[i][j+1] == '*' or matriz[i][j+1] == '$'):
-							lista.append([i,j])
-							atual = [i, j+1]
-							DFS(atual,matriz, row, col, fim, lista)
-
-						elif (matriz[i][j-1] == '*'or  matriz[i][j-1] == '$' ):
-							lista.append([i,j])
-							atual = [i, j-1]
-							DFS(atual,matriz, row, col, fim, lista)
-
-				elif (i > 0):
-
-					if(i == (row-1)):
-
-						if(j == 0):
-
-							if (matriz[i][j+1] == '*' or matriz[i][j+1] == '$' ):
-								lista.append([i,j])
-								atual = [i, j+1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-
-							elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-						elif(j == (col-1)):
-
-							if (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
-								lista.append([i,j])
-								atual = [i, j-1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-						else:
-
-							if (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
-								lista.append([i,j])
-								atual = [i, j+1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
-								lista.append([i,j])
-								atual = [i, j-1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-
-					else:
-
-						if (j == 0):
-
-							if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
-								lista.append([i,j])
-								atual = [i+1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-
-							elif (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
-								lista.append([i,j])
-								atual = [i, j+1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-
-							elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-
-						elif( j == (col-1) ):
-
-							if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
-								lista.append([i,j])
-								atual = [i+1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
-								lista.append([i,j])
-								atual = [i, j-1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-						else:
-
-							if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
-								lista.append([i,j])
-								atual = [i+1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
-								lista.append([i,j])
-								atual = [i, j+1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
-								lista.append([i,j])
-								atual = [i, j-1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i-1][j] == '*' or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
 
 #Desenha de fato
-def drawGrid(col, row,lista,comeco,fim,matriz):
+def drawGrid(col, row,comeco,fim,matriz):
 
 	# 4 no primeiro == 4 pra direita (colunas da matriz - deve ter 25 nesse caso)
 	# 2 no segundo == 2 pra baixo (pra baixo, linhas da matriz - deve ter 28 nesse caso)
@@ -605,7 +257,7 @@ def drawGrid(col, row,lista,comeco,fim,matriz):
 if __name__ == '__main__':
 
 
-	arquivo_entrada = "entrada.txt"
+	arquivo_entrada = "entrada3.txt"
 
 	matriz, row, col = ler_arquivo(arquivo_entrada)
 
@@ -636,7 +288,6 @@ if __name__ == '__main__':
 		#print()
 	
 
-	lista = []
 	BFS(matriz,inicio,final,row,col)
 	#lista.append( DFS(inicio, matriz, row, col, final, lista) )
 	matriz[inicio[0]][inicio[1]] = 'i'
@@ -657,7 +308,7 @@ if __name__ == '__main__':
 		
 
 	while True:
-		drawGrid(col, row, lista, inicio, final,matriz)
+		drawGrid(col, row, inicio, final,matriz)
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
