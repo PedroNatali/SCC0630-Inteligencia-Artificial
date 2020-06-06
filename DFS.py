@@ -39,195 +39,155 @@ def ler_arquivo(arquivo):
 
 def DFS(atual, matriz, row, col, fim, lista):
 
+	global CHEGOU
 	i = atual[0]
 	j = atual[1]
 
+	if [i,j] not in lista:
 
-	if 	(atual not in lista):
+		if([i,j] == fim):
+			CHEGOU = True
 
-		matriz[i][j]= 'v'
-
-		if (atual == fim):
+		while not CHEGOU:
 
 			lista.append([i,j])
-			#print(lista)
-			#print ("\n\nCHEGOU\n\n")
-			return lista
-
-
-		#i max = 28 // j max = 25 
-		else:
-
 			if ( (i < row ) & (j < col) ):
 
-				if (i == 0):
-
-					if (j == 0):
-
-						if ( (matriz[i+1][j] == '*' ) or (matriz[i+1][j] == '$') ):
-
-							lista.append([i,j])
-							atual = [i+1, j]
-							DFS(atual,matriz, row, col, fim, lista)
-
-						elif (matriz[i][j+1] == '*' or matriz[i][j+1] == '$'):
-							lista.append([i,j])
-							atual = [i, j+1]
-							DFS(atual,matriz, row, col, fim, lista)
-
-					elif(j == (col-1)):
-
-						if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
-							lista.append([i,j])
-							atual = [i+1, j]
-							DFS(atual,matriz, row, col, fim, lista)
-
-						elif (matriz[i][j-1] == '*' or matriz[i][j-1] == '$' ):
-							lista.append([i,j])
-							atual = [i, j-1]
-							DFS(atual,matriz, row, col, fim, lista)
-
-
-					else:
-
-						if (matriz[i+1][j] == ('*'or'$') ):
-							lista.append([i,j])
-							atual = [i+1, j]
-							DFS(atual,matriz, row, col, fim, lista)
-
-						elif (matriz[i][j+1] == '*' or matriz[i][j+1] == '$'):
-							lista.append([i,j])
-							atual = [i, j+1]
-							DFS(atual,matriz, row, col, fim, lista)
-
-						elif (matriz[i][j-1] == '*'or  matriz[i][j-1] == '$' ):
-							lista.append([i,j])
-							atual = [i, j-1]
-							DFS(atual,matriz, row, col, fim, lista)
-
-				elif (i > 0):
-
-					if(i == (row-1)):
-
-						if(j == 0):
-
-							if (matriz[i][j+1] == '*' or matriz[i][j+1] == '$' ):
-								lista.append([i,j])
-								atual = [i, j+1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-
-							elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-						elif(j == (col-1)):
-
-							if (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
-								lista.append([i,j])
-								atual = [i, j-1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-						else:
-
-							if (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
-								lista.append([i,j])
-								atual = [i, j+1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
-								lista.append([i,j])
-								atual = [i, j-1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-
-					else:
+					if (i == 0):
 
 						if (j == 0):
 
-							if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
-								lista.append([i,j])
-								atual = [i+1, j]
+							if ( (matriz[i+1][j] == '*' ) or (matriz[i+1][j] == '$') ):
+								atual = [i+1,j]
 								DFS(atual,matriz, row, col, fim, lista)
 
-
-
-							elif (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
-								lista.append([i,j])
-								atual = [i, j+1]
+							if (matriz[i][j+1] == '*' or matriz[i][j+1] == '$'):
+								atual = [i,j+1]
 								DFS(atual,matriz, row, col, fim, lista)
 
-
-
-							elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-
-						elif( j == (col-1) ):
+						elif(j == (col-1)):
 
 							if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
-								lista.append([i,j])
-								atual = [i+1, j]
+								atual = [i+1,j]
 								DFS(atual,matriz, row, col, fim, lista)
 
-
-							elif (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
-								lista.append([i,j])
-								atual = [i, j-1]
-								DFS(atual,matriz, row, col, fim, lista)
-
-
-							elif (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
+							if (matriz[i][j-1] == '*' or matriz[i][j-1] == '$' ):
+								atual = [i, j-1 ]
 								DFS(atual,matriz, row, col, fim, lista)
 
 
 						else:
 
-							if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
-								lista.append([i,j])
-								atual = [i+1, j]
+							if (matriz[i+1][j] == ('*'or'$') ):
+								atual = [i+1,j]
 								DFS(atual,matriz, row, col, fim, lista)
 
-
-							elif (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
-								lista.append([i,j])
-								atual = [i, j+1]
+							if (matriz[i][j+1] == '*' or matriz[i][j+1] == '$'):
+								atual = [i,j+1]
 								DFS(atual,matriz, row, col, fim, lista)
 
-
-							elif (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
-								lista.append([i,j])
-								atual = [i, j-1]
+							if (matriz[i][j-1] == '*'or  matriz[i][j-1] == '$' ):
+								atual = [i,j-1]
 								DFS(atual,matriz, row, col, fim, lista)
 
+					if (i > 0):
 
-							elif (matriz[i-1][j] == '*' or matriz[i-1][j] == '$'):
-								lista.append([i,j])
-								atual = [i-1, j]
-								DFS(atual,matriz, row, col, fim, lista)
+						if(i == (row-1)):
+
+							if(j == 0):
+
+								if (matriz[i][j+1] == '*' or matriz[i][j+1] == '$' ):
+									atual = [i,j+1]
+									DFS(atual,matriz, row, col, fim, lista)
+
+
+
+								if (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
+									atual = [i-1, j]
+									DFS(atual,matriz, row, col, fim, lista)
+
+
+							elif(j == (col-1)):
+
+								if (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
+									atual = [i,j-1]
+									DFS(atual,matriz, row, col, fim, lista)
+
+
+								if (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
+									atual = [i-1,j]
+									DFS(atual,matriz, row, col, fim, lista)
+
+
+							else:
+
+								if (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
+									atual = [i,j+1]
+									DFS(atual,matriz, row, col, fim, lista)
+
+
+								if (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
+									atual = [i,j-1]
+									DFS(atual,matriz, row, col, fim, lista)
+
+
+								if (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
+									atual = [i-1,j]
+									DFS(atual,matriz, row, col, fim, lista)
+
+
+
+						else:
+
+							if (j == 0):
+
+								if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
+									atual = [i+1,j]
+									DFS(atual,matriz, row, col, fim, lista)
+
+								if (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
+									atual = [i,j+1]
+									DFS(atual,matriz, row, col, fim, lista)
+
+								if (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
+									atual = [i-1,j]
+									DFS(atual,matriz, row, col, fim, lista)
+
+
+
+							elif( j == (col-1) ):
+
+								if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
+									atual = [i+1,j]
+									DFS(atual,matriz, row, col, fim, lista)
+
+								if (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
+									atual = [i,j-1]
+									DFS(atual,matriz, row, col, fim, lista)
+
+
+								if (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
+									atual = [i-1,j]
+									DFS(atual,matriz, row, col, fim, lista)
+
+
+							else:
+								if (matriz[i+1][j] == '*'or matriz[i+1][j] == '$' ):
+									atual = [i+1,j]
+									DFS(atual,matriz, row, col, fim, lista)
+
+								if (matriz[i][j+1] == '*'or matriz[i][j+1] == '$'):
+									atual = [i,j+1]
+									DFS(atual,matriz, row, col, fim, lista)
+
+								if (matriz[i][j-1] == '*'or matriz[i][j-1] == '$' ):
+									atual = [i,j-1]
+									DFS(atual,matriz, row, col, fim, lista)
+
+								if (matriz[i-1][j] == '*' or matriz[i-1][j] == '$'):	
+									atual = [i-1,j]
+									DFS(atual,matriz, row, col, fim, lista)
+
 
 
 
@@ -267,6 +227,7 @@ def drawGrid(col, row,lista,comeco,fim,matriz):
 if __name__ == '__main__':
 
 
+
 	arquivo_entrada = "entrada3.txt"
 
 	matriz, row, col = ler_arquivo(arquivo_entrada)
@@ -297,24 +258,17 @@ if __name__ == '__main__':
 	
 
 	lista = []
-	lista.append( DFS(inicio, matriz, row, col, final, lista) )
+	CHEGOU = False
+	DFS(inicio, matriz, row, col, final, lista)
+	for i in range(0, row):
+		for j in range(0, col):
+	 		if([i,j] in lista):
+	 			matriz[i][j] = 'v'
 	matriz[inicio[0]][inicio[1]] = 'i'
 	matriz[final[0]][final[1]] = 'f'
-	lista.remove(None)
 	print(lista)
 
-	# for i in range(0, row):
-	# 	for j in range(0, col):
-
-	# 		#if([i,j] in lista):
-	# 		#	matriz[i][j] = lista.index([i,j])
-
-	# 		print(matriz[i][j], end = " ")
-
-	# 	print()
-
-	# print()
-		
+	
 
 	while True:
 		drawGrid(col, row, lista, inicio, final,matriz)
