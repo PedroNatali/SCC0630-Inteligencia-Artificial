@@ -1,6 +1,7 @@
 #@authors Pedro Natali, Rafael Pinho & Patrick Feitosa
 
 import pygame
+import time
 
 #Colors
 BLACK = (10, 10, 10)
@@ -228,7 +229,7 @@ if __name__ == '__main__':
 
 
 
-	arquivo_entrada = "entrada3.txt"
+	arquivo_entrada = "entrada.txt"
 
 	matriz, row, col = ler_arquivo(arquivo_entrada)
 
@@ -259,7 +260,12 @@ if __name__ == '__main__':
 
 	lista = []
 	CHEGOU = False
+	ini = time.time()
 	DFS(inicio, matriz, row, col, final, lista)
+	fim = time.time()
+	print ("\nTempo de Execução:", fim-ini)
+	print()
+
 	for i in range(0, row):
 		for j in range(0, col):
 	 		if([i,j] in lista):
