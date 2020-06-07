@@ -49,6 +49,7 @@ def DFS(atual, matriz, row, col, fim, lista):
 		if([i,j] == fim):
 			CHEGOU = True
 
+
 		while not CHEGOU:
 			lista.append([i,j])
 			if ( (i < row ) & (j < col) ):
@@ -99,8 +100,6 @@ def DFS(atual, matriz, row, col, fim, lista):
 								if (matriz[i][j+1] == '*' or matriz[i][j+1] == '$' ):
 									atual = [i,j+1]
 									DFS(atual,matriz, row, col, fim, lista)
-
-
 
 								if (matriz[i-1][j] == '*'or matriz[i-1][j] == '$'):
 									atual = [i-1, j]

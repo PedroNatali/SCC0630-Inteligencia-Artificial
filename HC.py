@@ -1,6 +1,7 @@
 #@authors Pedro Natali, Rafael Pinho & Patrick Feitosa
 
 import pygame
+import time
 
 #Colors
 BLACK = (10, 10, 10)
@@ -85,6 +86,7 @@ def HC(atual, matriz, row, col, fim, lista):
 	if(pontuacao_atual == 0):
 		lista.append([i,j])
 		return lista
+
 
 	#i max = 28 // j max = 25 
 	else:
@@ -347,10 +349,13 @@ if __name__ == '__main__':
 	
 
 	lista = []
-	lista.append( HC(inicio, matriz, row, col, final, lista) )
+	ini = time.time()
+	HC(inicio, matriz, row, col, final, lista)
+	fim = time.time()
+	print ("\nTempo de Execução:", fim-ini)
 	matriz[inicio[0]][inicio[1]] = 'i'
 	matriz[final[0]][final[1]] = 'f'
-	lista.remove(None)
+
 	print(lista)
 
 	# for i in range(0, row):
