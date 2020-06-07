@@ -50,7 +50,6 @@ def DFS(atual, matriz, row, col, fim, lista):
 			CHEGOU = True
 
 		while not CHEGOU:
-
 			lista.append([i,j])
 			if ( (i < row ) & (j < col) ):
 
@@ -252,7 +251,6 @@ if __name__ == '__main__':
 			#print(matrix[i][j], end = "")
 			if(matriz[i][j] == '#'):
 				inicio = [i,j]
-
 			if(matriz[i][j] == '$'):
 				final = [i,j]
 		#print()
