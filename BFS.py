@@ -2,6 +2,7 @@
 
 import pygame
 import sys
+import time
 
 #Colors
 BLACK = (10, 10, 10)
@@ -40,6 +41,8 @@ def ler_arquivo(arquivo):
 	return matriz, row, col
 
 def BFS(matriz, inicio, final, row, col):
+
+	time_begin = time.time()
 	visitados = []
 	visitar = []
 	lista = []
@@ -211,6 +214,8 @@ def BFS(matriz, inicio, final, row, col):
 
 			else:
 				print("\n\nERRO!!!\n\n")
+	time_end = time.time()
+	print("tempo de execução: ",time_end-time_begin)
 	print(lista)
 
 
@@ -248,7 +253,7 @@ def drawGrid(col, row,comeco,fim,matriz):
 				pygame.draw.rect(SCREEN, BLACK, rect)
 			else:
 				rect = pygame.Rect(x*blockSize, y*blockSize, blockSize, blockSize)
-				pygame.draw.rect(SCREEN, BLUE, rect)
+				pygame.draw.rect(SCREEN, WHITE, rect)
 			rect = pygame.Rect(x*blockSize, y*blockSize, blockSize, blockSize)
 			pygame.draw.rect(SCREEN, GREY, rect,1)
 
@@ -257,7 +262,7 @@ def drawGrid(col, row,comeco,fim,matriz):
 if __name__ == '__main__':
 
 
-	arquivo_entrada = "entrada3.txt"
+	arquivo_entrada = "entrada2.txt"
 
 	matriz, row, col = ler_arquivo(arquivo_entrada)
 
